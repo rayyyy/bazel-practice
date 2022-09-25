@@ -1,0 +1,14 @@
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+java_library(
+    name = "mylib",
+    srcs = ["MyLib.java"],
+)
+
+java_binary(
+    name = "mybin",
+    srcs = ["MyBin.java"],
+    main_class = "main.java.com.github.rayyyy.libs.MyBin",
+    deps = [
+        ":mylib", # or "//src/main/java/jp/flywheel:mylib",
+    ],
+)
