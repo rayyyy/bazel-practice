@@ -1,0 +1,15 @@
+load("@io_bazel_rules_jsonnet//jsonnet:jsonnet.bzl", "jsonnet_to_json", "jsonnet_to_json_test")
+
+jsonnet_to_json(
+    name = "main",
+    src = "main.jsonnet",
+    outs = ["main.json"],
+    deps = ["//configs:sample"],
+)
+
+jsonnet_to_json_test(
+    name = "main_test",
+    src = "main.jsonnet",
+    deps = ["//configs:sample"],
+    golden = "main_test.json",
+)
