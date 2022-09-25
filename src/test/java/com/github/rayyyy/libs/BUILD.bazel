@@ -1,0 +1,11 @@
+load("@rules_java//java:defs.bzl", "java_test")
+java_test(
+    name = "mylib_test",
+    srcs = [
+        "MyLibTest.java",
+    ],
+    test_class = "test.java.com.github.rayyyy.libs.MyLibTest",
+    deps = [
+        "//src/main/java/com/github/rayyyy/libs:mylib",
+    ],
+)
